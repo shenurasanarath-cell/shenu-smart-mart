@@ -1,0 +1,571 @@
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHENU SMART MART | Shop Smart. Buy Better.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>SHENU SMART MART</span>
+                </a>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#products" class="nav-link">Products</a></li>
+                        <li><a href="#categories" class="nav-link">Categories</a></li>
+                        <li><a href="#about" class="nav-link">About Us</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search products...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button class="cart-toggle" id="cartToggle">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="#home" class="mobile-nav-link">Home</a></li>
+            <li><a href="#products" class="mobile-nav-link">Products</a></li>
+            <li><a href="#categories" class="mobile-nav-link">Categories</a></li>
+            <li><a href="#about" class="mobile-nav-link">About Us</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to <span>SHENU SMART MART</span></h1>
+                <p class="hero-subtitle">Shop Smart. Buy Better.</p>
+                <p class="hero-desc">Discover affordable, high-quality products delivered right to your doorstep. From electronics to fashion, we have everything you need.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">Shop Now</a>
+                    <a href="#products" class="btn btn-outline">View Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo-banner">
+        <div class="container">
+            <div class="promo-content">
+                <i class="fas fa-percentage"></i>
+                <span>Special Offers – Up to <strong>50% Off</strong> on selected items!</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick and reliable delivery across Sri Lanka</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Secure Shopping</h3>
+                    <p>100% secure payment and data protection</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tags"></i></div>
+                    <h3>Best Prices</h3>
+                    <p>Unbeatable prices on all products</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-star"></i></div>
+                    <h3>Quality Products</h3>
+                    <p>Only the best quality guaranteed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Category</h2>
+                <p class="section-subtitle">Browse our wide range of product categories</p>
+            </div>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Products</h2>
+                <p class="section-subtitle">Explore our latest collection of premium products</p>
+            </div>
+            <div class="products-toolbar">
+                <div class="filter-group">
+                    <label for="categoryFilter">Category:</label>
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="Mobile Accessories">Mobile Accessories</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Smart Gadgets">Smart Gadgets</option>
+                        <option value="Home & Kitchen">Home & Kitchen</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+                        <option value="Computer Accessories">Computer Accessories</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sortFilter">Sort By:</label>
+                    <select id="sortFilter">
+                        <option value="default">Default</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products injected by JS -->
+            </div>
+            <div class="no-results" id="noResults" style="display:none;">
+                <i class="fas fa-search"></i>
+                <h3>No products found</h3>
+                <p>Try adjusting your search or filter criteria.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="about-img-placeholder">
+                        <i class="fas fa-store"></i>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title">About SHENU SMART MART</h2>
+                    <p>SHENU SMART MART is your trusted online shopping destination in Sri Lanka. We are committed to offering quality products at affordable prices with convenient delivery and excellent customer service.</p>
+                    <p>Our mission is to make online shopping easy, safe, and enjoyable for everyone. We carefully select each product to ensure it meets our high standards of quality and value.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">5000+</span>
+                            <span class="stat-label">Happy Customers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Products</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">99%</span>
+                            <span class="stat-label">Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Customer Reviews</h2>
+                <p class="section-subtitle">What our customers say about us</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Great products and fast delivery. Highly recommended! The quality exceeded my expectations."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">N</div>
+                        <div class="author-info">
+                            <h4>Nimal Perera</h4>
+                            <span>Colombo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Amazing prices and excellent customer service. Will definitely shop here again!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sanduni Silva</h4>
+                            <span>Kandy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"The smart gadgets collection is fantastic. Got my power bank delivered in just 2 days!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4>Ruwan Fernando</h4>
+                            <span>Galle</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Best online store in Sri Lanka. Genuine products, secure payment, and super fast delivery."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Anjali Devi</h4>
+                            <span>Jaffna</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Love the variety of products available. The checkout process was smooth and hassle-free!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">K</div>
+                        <div class="author-info">
+                            <h4>Kasun Jayasuriya</h4>
+                            <span>Negombo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"Purchased multiple items and all arrived in perfect condition. Great packaging and service!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Malini Rathnayake</h4>
+                            <span>Kurunegala</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>076 212 7797</p>
+                            <p>077 107 2751</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@shenusmartmart.lk</p>
+                            <p>support@shenusmartmart.lk</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>123 Main Street, Colombo 03</p>
+                            <p>Sri Lanka</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-details">
+                            <h4>Business Hours</h4>
+                            <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+                            <p>Sunday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="contactName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contactEmail" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="contactPhone" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contactMessage" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>SHENU SMART MART</span>
+                    </a>
+                    <p>Your trusted online shopping destination in Sri Lanka. Quality products, affordable prices, and excellent service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Mobile Accessories</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Smart Gadgets</a></li>
+                        <li><a href="#">Home & Kitchen</a></li>
+                        <li><a href="#">Fashion</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Customer Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SHENU SMART MART. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-overlay" id="cartOverlay"></div>
+        <div class="cart-panel">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+                <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="cart-empty" id="cartEmpty">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Your cart is empty</p>
+                    <a href="#products" class="btn btn-primary" id="startShopping">Start Shopping</a>
+                </div>
+                <div class="cart-items" id="cartItems"></div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display:none;">
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">Rs. 0.00</span>
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">Rs. 0.00</span>
+                </div>
+                <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+                <button class="btn btn-outline btn-block" id="clearCart">Clear Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-overlay" id="checkoutOverlay"></div>
+        <div class="checkout-panel">
+            <div class="checkout-header">
+                <h3><i class="fas fa-credit-card"></i> Checkout</h3>
+                <button class="close-checkout" id="closeCheckout"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="checkout-body">
+                <div class="order-summary" id="orderSummary">
+                    <h4>Order Summary</h4>
+                    <div id="summaryItems"></div>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span id="summaryTotal">Rs. 0.00</span>
+                    </div>
+                </div>
+                <form class="checkout-form" id="checkoutForm">
+                    <h4>Delivery Details</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="checkoutName" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="checkoutPhone" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="checkoutEmail" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="checkoutAddress" rows="3" placeholder="Delivery Address" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="checkoutCity" placeholder="City" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="checkoutProvince" placeholder="Province" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="checkoutPostal" placeholder="Postal Code" required>
+                    </div>
+                    <h4>Payment Method</h4>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cod" checked>
+                            <span><i class="fas fa-money-bill-wave"></i> Cash on Delivery</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="bank">
+                            <span><i class="fas fa-university"></i> Bank Transfer</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="online">
+                            <span><i class="fas fa-credit-card"></i> Online Payment</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="product-overlay" id="productOverlay"></div>
+        <div class="product-panel">
+            <button class="close-product" id="closeProduct"><i class="fas fa-times"></i></button>
+            <div class="product-details" id="productDetails"></div>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-overlay" id="successOverlay"></div>
+        <div class="success-panel">
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for your order! Your SHENU SMART MART order has been received successfully.</p>
+            <p class="order-number">Order Number: <span id="orderNumber"></span></p>
+            <button class="btn btn-primary" id="closeSuccess">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Contact Success Modal -->
+    <div class="success-modal" id="contactSuccessModal">
+        <div class="success-overlay" id="contactSuccessOverlay"></div>
+        <div class="success-panel">
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <h2>Message Sent!</h2>
+            <p>Thank you for contacting us. We will get back to you soon!</p>
+            <button class="btn btn-primary" id="closeContactSuccess">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>'''
+
+with open('/mnt/agents/output/index.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("index.html created successfully!")
+print(f"Size: {len(html_content)} characters")
